@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:id="@+id/scvOrderInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#ffffff"
+                android:layout_above="@+id/layoutKeyboard"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:background="#e0e0e0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chén thường"
+                        android:textSize="25sp"
+                        android:textColor="@color/colorAccent"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenTai"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Tái"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenNam"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Nạm"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenGau"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Gầu"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenGan"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Gân"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="4"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenVien"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Viên"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenVe"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Vè"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loại khác"
+                        android:textSize="25dp"
+                        android:layout_marginTop="20sp"
+                        android:textColor="@color/colorAccent"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenBap"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Chén bắp"
+                                android:gravity="center"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenTrung"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Chén trứng"
+                                android:gravity="center"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbChenBanh"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Chén bánh"
+                                android:gravity="center"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbYaourtHu"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Yaourt hủ"
+                                android:gravity="center"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="4"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbXiQuach1Nguoi"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Xí quách 1n"
+                                android:gravity="center"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/cbXiQuach2Nguoi"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Xí quách 2n"
+                                android:gravity="center"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20sp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Số lượng:"
+                            android:textSize="25dp"
+                            android:textColor="@color/colorAccent"
+                            />
+
+                        <EditText
+                            android:id="@+id/edtSoLuong"
+                            android:layout_width="@dimen/checkbox_pho_size"
+                            android:layout_height="@dimen/checkbox_pho_size"
+                            android:background="@drawable/edittext_selector"
+                            android:inputType="numberDecimal"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:selectAllOnFocus="true"
+                            android:focusableInTouchMode ="true"
+                            android:layout_marginLeft="20dp"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ghi chú"
+                        android:textSize="25dp"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@color/colorAccent"
+                        />
+
+                    <EditText
+                        android:id="@+id/edtGhichu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/ghichu_height"
+                        android:background="#ffffff"
+                        android:layout_marginTop="10dp"
+                        android:focusable="false"
+                        android:gravity="start"
+                        android:maxLines="5"
+                        />
+                </LinearLayout>
+
+            </ScrollView>
+
+            <include layout="@layout/sub_layout_mon_phu_keyboard"
+                android:visibility="gone"
+                android:id="@+id/layoutKeyboard"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <include layout="@layout/sub_layout_thong_tin_order"
+            android:id="@+id/layoutThongTinOrder"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+

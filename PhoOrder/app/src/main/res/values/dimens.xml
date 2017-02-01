@@ -1,0 +1,27 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--keyboard-->
+    <dimen name="ghichu_keyboard_size_so">20sp</dimen>
+    <dimen name="ghichu_keyboard_size_kich_thuoc">20sp</dimen>
+    <dimen name="ghichu_keyboard_size_dac_diem">10sp</dimen>
+
+    <dimen name="ghichu_keyboard_margin">10dp</dimen>
+
+    <!--ghi chú-->
+    <dimen name="ghichu_height">150dp</dimen>
+
+    <!--Phở name checkbox-->
+    <dimen name="checkbox_pho_size">50dp</dimen>
+    <dimen name="ten_pho_size">20sp</dimen>
+    <dimen name="pho_layout_margin">10dp</dimen>
+
+    <!--Thông tin order-->
+    <dimen name="thong_tin_order_padding">10dp</dimen>
+    <dimen name="thong_tin_order_text_size">20dp</dimen>
+
+    <!--Tiêu đề-->
+    <dimen name="title_size">32sp</dimen>
+</resources>

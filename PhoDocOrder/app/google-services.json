@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "998574386909",
+    "firebase_url": "https://pholemanager.firebaseio.com",
+    "project_id": "pholemanager",
+    "storage_bucket": "pholemanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998574386909:android:6e214459c3718918",
+        "android_client_info": {
+          "package_name": "hungmai.phoorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998574386909-32ibr2973dhqs9f4nrltks48er86gvtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdsFY_S3z7Wqps1EDvDItzZ7QTY9sppYQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998574386909:android:ac42941517b7ff0d",
+        "android_client_info": {
+          "package_name": "hungmai.phodocorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998574386909-32ibr2973dhqs9f4nrltks48er86gvtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdsFY_S3z7Wqps1EDvDItzZ7QTY9sppYQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
