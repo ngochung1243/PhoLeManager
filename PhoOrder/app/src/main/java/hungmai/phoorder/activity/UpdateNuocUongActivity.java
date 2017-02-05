@@ -31,6 +31,9 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
 
     CheckBox cbNuocEpThom;
     CheckBox cbNuocEpCaRot;
+    CheckBox cbChanhDay;
+    CheckBox cbChanhDayCaRotYaourtDa;
+    CheckBox cbCarotThom;
     CheckBox cbRauMa;
     CheckBox cbDauNanh;
     CheckBox cbYaourtDa;
@@ -89,6 +92,9 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
     private void Map(){
         cbNuocEpThom = (CheckBox)findViewById(R.id.cbNuocEpThom);
         cbNuocEpCaRot = (CheckBox)findViewById(R.id.cbNuocEpCaRot);
+        cbChanhDay = (CheckBox)findViewById(R.id.cbChanhDay);
+        cbChanhDayCaRotYaourtDa = (CheckBox)findViewById(R.id.cbChanhDayCaRotYaourtDa);
+        cbCarotThom = (CheckBox)findViewById(R.id.cbCaRotThom);
         cbRauMa = (CheckBox)findViewById(R.id.cbRauMa);
         cbDauNanh = (CheckBox)findViewById(R.id.cbDauNanh);
         cbYaourtDa = (CheckBox)findViewById(R.id.cbYaourtDa);
@@ -119,6 +125,10 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
     private void setListener(){
         cbNuocEpThom.setOnClickListener(this);
         cbNuocEpCaRot.setOnClickListener(this);
+        cbNuocEpCaRot.setOnClickListener(this);
+        cbChanhDay.setOnClickListener(this);
+        cbChanhDayCaRotYaourtDa.setOnClickListener(this);
+        cbCarotThom.setOnClickListener(this);
         cbRauMa.setOnClickListener(this);
         cbDauNanh.setOnClickListener(this);
         cbYaourtDa.setOnClickListener(this);
@@ -170,6 +180,15 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
             }else if (full_ten_nuoc_uong.contains("Nước ép cà rốt")){
                 ten_nuoc_uong = "Nước ép cà rốt";
                 cbNuocEpCaRot.setChecked(true);
+            }else if (full_ten_nuoc_uong.contains("Chanh dây")){
+                ten_nuoc_uong = "Chanh dây";
+                cbChanhDay.setChecked(true);
+            }else if (full_ten_nuoc_uong.contains("Cà rốt / thơm")){
+                ten_nuoc_uong = "Cà rốt - thơm";
+                cbCarotThom.setChecked(true);
+            }else if (full_ten_nuoc_uong.contains("Chanh dây / cà rốt / yaourt đá")){
+                ten_nuoc_uong = "Chanh dây - cà rốt - yaourt đá";
+                cbChanhDayCaRotYaourtDa.setChecked(true);
             }else if (full_ten_nuoc_uong.contains("Rau má")){
                 ten_nuoc_uong = "Rau má";
                 cbRauMa.setChecked(true);
@@ -233,6 +252,22 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
             }else if (loai.equals("Không đá")){
                 gia = GiaNuocUong.NUOC_EP_CA_ROT_KHONG_DA;
             }
+        }else if (ten_nuoc_uong.equals("Chanh dây")){
+            if (loai.equals("Có đá")){
+                gia = GiaNuocUong.CHANH_DAY_CO_DA;
+            }
+        }else if (ten_nuoc_uong.equals("Cà rốt / thơm")){
+            if (loai.equals("Có đá")){
+                gia = GiaNuocUong.CA_ROT_THOM_CO_DA;
+            }else if (loai.equals("Không đá")){
+                gia = GiaNuocUong.CA_ROT_THOM_KHONG_DA;
+            }
+        }else if (ten_nuoc_uong.equals("Chanh dây / cà rốt / yaourt đá")){
+            if (loai.equals("Có đá")){
+                gia = GiaNuocUong.CHANH_DAY_CA_ROT_YAOURT_DA_CO_DA;
+            }else if (loai.equals("Không đá")){
+                gia = GiaNuocUong.CHANH_DAY_CA_ROT_YAOURT_DA_KHONG_DA;
+            }
         }else if (ten_nuoc_uong.equals("Rau má")){
             if (loai.equals("Có đá")){
                 gia = GiaNuocUong.RAU_MA_CO_DA;
@@ -295,6 +330,8 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
             this.loai = "";
             if (ten_nuoc_uong.equals("Yaourt đá")){
                 setEnableYaourt();
+            }else if (ten_nuoc_uong.equals("Chanh dây")){
+                setEnableChanhDay();
             }else {
                 setEnableNuocUongThuong();
             }
@@ -327,6 +364,9 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
     private void setUnCheckAll(){
         cbNuocEpThom.setChecked(false);
         cbNuocEpCaRot.setChecked(false);
+        cbChanhDay.setChecked(false);
+        cbCarotThom.setChecked(false);
+        cbChanhDayCaRotYaourtDa.setChecked(false);
         cbRauMa.setChecked(false);
         cbDauNanh.setChecked(false);
         cbYaourtDa.setChecked(false);
@@ -356,6 +396,13 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
         cbKhongDa.setEnabled(false);
         cb1Hu.setEnabled(true);
         cb2Hu.setEnabled(true);
+    }
+
+    private void setEnableChanhDay(){
+        cbCoDa.setEnabled(true);
+        cbKhongDa.setEnabled(false);
+        cb1Hu.setEnabled(false);
+        cb2Hu.setEnabled(false);
     }
 
     private void setAllEnable(){
@@ -436,6 +483,18 @@ public class UpdateNuocUongActivity extends AppCompatActivity implements View.On
             case R.id.cbNuocEpCaRot:
                 isCheck = ((CheckBox)v).isChecked();
                 updateNuocUong(isCheck, "Nước ép cà rốt", cbNuocEpCaRot);
+                break;
+            case R.id.cbChanhDay:
+                isCheck = ((CheckBox)v).isChecked();
+                updateNuocUong(isCheck, "Chanh dây", cbChanhDay);
+                break;
+            case R.id.cbCaRotThom:
+                isCheck = ((CheckBox)v).isChecked();
+                updateNuocUong(isCheck, "Cà rốt / thơm", cbCarotThom);
+                break;
+            case R.id.cbChanhDayCaRotYaourtDa:
+                isCheck = ((CheckBox)v).isChecked();
+                updateNuocUong(isCheck, "Chanh dây / cà rốt / yaourt đá", cbChanhDayCaRotYaourtDa);
                 break;
             case R.id.cbRauMa:
                 isCheck = ((CheckBox)v).isChecked();

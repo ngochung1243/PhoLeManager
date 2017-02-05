@@ -202,7 +202,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ít nước"
+                android:text="Nhiều bánh"
                 android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
                 android:onClick="keyboardReturn"/>
 
@@ -234,6 +234,68 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Vắt mì"
+                android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
+                android:onClick="keyboardReturn"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Thêm nước béo"
+                android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
+                android:onClick="keyboardReturn"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Có hành"
+                android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
+                android:onClick="keyboardReturn"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ít hành"
+                android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
+                android:onClick="keyboardReturn"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nhiều hành tây"
+                android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
+                android:onClick="keyboardReturn"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nhiều hành lá"
+                android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
+                android:onClick="keyboardReturn"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ít nước"
                 android:textSize="@dimen/ghichu_keyboard_size_dac_diem"
                 android:onClick="keyboardReturn"/>
 

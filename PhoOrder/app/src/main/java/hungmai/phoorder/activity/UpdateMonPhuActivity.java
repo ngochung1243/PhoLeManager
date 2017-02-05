@@ -33,10 +33,11 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
     public static final int LOAI_CHEN_THUONG = 0;
     public static final int LOAI_CHEN_BAP = 1;
     public static final int LOAI_CHEN_TRUNG = 2;
-    public static final int LOAI_CHEN_BANH = 3;
-    public static final int LOAI_XI_QUACH_1_NGUOI = 4;
-    public static final int LOAI_XI_QUACH_2_NGUOI = 5;
-    public static final int LOAI_YAOURT_HU = 6;
+    public static final int LOAI_CHEN_2_TRUNG = 3;
+    public static final int LOAI_CHEN_BANH = 4;
+    public static final int LOAI_XI_QUACH_1_NGUOI = 5;
+    public static final int LOAI_XI_QUACH_2_NGUOI = 6;
+    public static final int LOAI_YAOURT_HU = 7;
 
     CheckBox cbChenTai;
     CheckBox cbChenNam;
@@ -46,6 +47,7 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
     CheckBox cbChenVe;
     CheckBox cbChenBap;
     CheckBox cbChenTrung;
+    CheckBox cbChen2Trung;
     CheckBox cbChenBanh;
     CheckBox cbYaourtHu;
     CheckBox cbXiQuach1Nguoi;
@@ -96,6 +98,7 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
         cbChenVe = (CheckBox)findViewById(R.id.cbChenVe);
         cbChenBap = (CheckBox)findViewById(R.id.cbChenBap);
         cbChenTrung = (CheckBox)findViewById(R.id.cbChenTrung);
+        cbChen2Trung = (CheckBox)findViewById(R.id.cbChen2Trung);
         cbChenBanh = (CheckBox)findViewById(R.id.cbChenBanh);
         cbXiQuach1Nguoi = (CheckBox)findViewById(R.id.cbXiQuach1Nguoi);
         cbXiQuach2Nguoi = (CheckBox)findViewById(R.id.cbXiQuach2Nguoi);
@@ -129,6 +132,7 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
         cbChenVe.setOnClickListener(this);
         cbChenBap.setOnClickListener(this);
         cbChenTrung.setOnClickListener(this);
+        cbChen2Trung.setOnClickListener(this);
         cbChenBanh.setOnClickListener(this);
         cbXiQuach1Nguoi.setOnClickListener(this);
         cbXiQuach2Nguoi.setOnClickListener(this);
@@ -218,6 +222,9 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
             }else if (ten_mon.equals("Trứng")){
                 loai_mon_phu = LOAI_CHEN_TRUNG;
                 cbChenTrung.setChecked(true);
+            }else if (ten_mon.equals("2 Trứng")){
+                loai_mon_phu = LOAI_CHEN_TRUNG;
+                cbChen2Trung.setChecked(true);
             }else if (ten_mon.equals("Bánh")){
                 loai_mon_phu = LOAI_CHEN_BANH;
                 cbChenBanh.setChecked(true);
@@ -315,6 +322,7 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
     private void setEnableVoiPhoThuong(){
         cbChenBap.setChecked(false);
         cbChenTrung.setChecked(false);
+        cbChenBanh.setChecked(false);
         cbXiQuach1Nguoi.setChecked(false);
         cbXiQuach2Nguoi.setChecked(false);
         cbYaourtHu.setChecked(false);
@@ -341,6 +349,20 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
             loai_mon_phu = LOAI_CHEN_TRUNG;
             setUnCheckAll();
             cbChenTrung.setChecked(true);
+        }else{
+            loai_mon_phu = LOAI_DEFAULT;
+        }
+
+        updateTenMon(isCheck, mon_phu_ten);
+    }
+
+    private void updateChen2Trung(boolean isCheck, String mon_phu_ten){
+        ten_mon_list.clear();
+        if (isCheck){
+            ten_mon_list.add("Chén");
+            loai_mon_phu = LOAI_CHEN_2_TRUNG;
+            setUnCheckAll();
+            cbChen2Trung.setChecked(true);
         }else{
             loai_mon_phu = LOAI_DEFAULT;
         }
@@ -409,6 +431,7 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
         cbChenVien.setChecked(false);
         cbChenVe.setChecked(false);
         cbChenTrung.setChecked(false);
+        cbChen2Trung.setChecked(false);
         cbChenBanh.setChecked(false);
         cbChenBap.setChecked(false);
         cbXiQuach1Nguoi.setChecked(false);
@@ -426,6 +449,9 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
                 break;
             case LOAI_CHEN_TRUNG:
                 gia = GiaMonPhu.CHEN_TRUNG;
+                break;
+            case LOAI_CHEN_2_TRUNG:
+                gia = GiaMonPhu.CHEN_2_TRUNG;
                 break;
             case LOAI_CHEN_BANH:
                 gia = GiaMonPhu.CHEN_BANH;
@@ -563,6 +589,11 @@ public class UpdateMonPhuActivity extends AppCompatActivity implements View.OnCl
             case R.id.cbChenTrung:
                 isCheck = ((CheckBox)v).isChecked();
                 updateChenTrung(isCheck, "Trứng");
+                break;
+
+            case R.id.cbChen2Trung:
+                isCheck = ((CheckBox)v).isChecked();
+                updateChen2Trung(isCheck, "2 Trứng");
                 break;
 
             case R.id.cbChenBanh:

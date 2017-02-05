@@ -15,6 +15,7 @@ public class Order {
     public String id = UUID.randomUUID().toString();
     public List<String> ten = new ArrayList<String>();
     public String bill_id = "";
+    public long so_luong_em_be = 0;
     public long so_luong_nho = 0;
     public long so_luong_lon = 0;
     public long so_luong_dac_biet = 0;

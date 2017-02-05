@@ -295,6 +295,33 @@
                             android:orientation="vertical">
 
                             <CheckBox
+                                android:id="@+id/cbChen2Trung"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Chén 2 trứng"
+                                android:gravity="center"
+                                android:textSize="@dimen/ten_pho_size"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <CheckBox
                                 android:id="@+id/cbChenBanh"
                                 android:layout_width="@dimen/checkbox_pho_size"
                                 android:layout_height="@dimen/checkbox_pho_size"
@@ -314,6 +341,16 @@
                                 />
 
                         </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="4"
+                        >
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -341,16 +378,6 @@
                                 />
 
                         </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
-                        android:weightSum="4"
-                        >
 
                         <LinearLayout
                             android:layout_width="0dp"

@@ -30,13 +30,11 @@ import hungmai.phoorder.model.PhoGan;
 import hungmai.phoorder.model.PhoGau;
 import hungmai.phoorder.model.PhoNam;
 import hungmai.phoorder.model.PhoTai;
+import hungmai.phoorder.model.PhoTaiBam;
 import hungmai.phoorder.model.PhoThapCam;
 import hungmai.phoorder.model.PhoVe;
 import hungmai.phoorder.model.PhoVien;
 import hungmai.phoorder.model.PhoXiQuach;
-
-import static android.R.id.list;
-import static hungmai.phoorder.R.id.cbTai;
 
 /**
  * Created by Admin on 1/24/2017.
@@ -49,6 +47,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     public static boolean isEdit = false;
 
     CheckBox cbTai;
+    CheckBox cbTaiBam;
     CheckBox cbNam;
     CheckBox cbGau;
     CheckBox cbGan;
@@ -103,6 +102,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
 
     public void Map(){
         cbTai = (CheckBox)findViewById(R.id.cbTai);
+        cbTaiBam = (CheckBox)findViewById(R.id.cbTaiBam);
         cbNam = (CheckBox)findViewById(R.id.cbNam);
         cbGau = (CheckBox)findViewById(R.id.cbGau);
         cbGan = (CheckBox)findViewById(R.id.cbGan);
@@ -138,6 +138,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
 
     public void setListener(){
         cbTai.setOnClickListener(this);
+        cbTaiBam.setOnClickListener(this);
         cbNam.setOnClickListener(this);
         cbGau.setOnClickListener(this);
         cbGan.setOnClickListener(this);
@@ -207,6 +208,9 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
             if (pho_name.equals("Tái")){
                 loai_pho_list.add(new PhoTai());
                 cbTai.setChecked(true);
+            }else if (pho_name.equals("Tái bằm")){
+                loai_pho_list.add(new PhoTaiBam());
+                cbTaiBam.setChecked(true);
             }else if (pho_name.equals("Nạm")){
                 loai_pho_list.add(new PhoNam());
                 cbNam.setChecked(true);
@@ -338,6 +342,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
 
     private void setEnableVoiPhoThapCam(){
         cbTai.setChecked(false);
+        cbTaiBam.setChecked(false);
         cbNam.setChecked(false);
         cbGau.setChecked(false);
         cbGan.setChecked(false);
@@ -376,6 +381,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
 
     private void setEnableVoiPhoEmBe(){
         cbTai.setChecked(false);
+        cbTaiBam.setChecked(false);
         cbNam.setChecked(false);
         cbGau.setChecked(false);
         cbGan.setChecked(false);
@@ -419,14 +425,14 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
             formatMacDinhEdtSoLuong();
         }else if (checkChiCoPhoThapCam()){
             edtNho.setEnabled(false);
-            edtLon.setEnabled(false);
-            edtDacBiet.setEnabled(true);
+            edtLon.setEnabled(true);
+            edtDacBiet.setEnabled(false);
         }else if (checkPhoBapKhongCoXiQuach()){
             formatMacDinhEdtSoLuong();
         }else if (checkPhoBapCoXiQuach()){
             edtNho.setEnabled(false);
-            edtLon.setEnabled(false);
-            edtDacBiet.setEnabled(true);
+            edtLon.setEnabled(true);
+            edtDacBiet.setEnabled(false);
         }else if (checkChiCoPhoEmBe()){
             edtNho.setEnabled(true);
             edtLon.setEnabled(false);
@@ -444,7 +450,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
             gia_lon = GiaMonChinh.PHO_LON;
             gia_dac_biet = GiaMonChinh.PHO_DAC_BIET;
         }else if (checkChiCoPhoThapCam()){
-            gia_dac_biet = GiaMonChinh.THAP_CAM;
+            gia_lon = GiaMonChinh.THAP_CAM;
         }else if (checkPhoBapKhongCoXiQuach()){
             if (checkPhoBapCoTren2PhoThuong()){
                 gia_nho = GiaMonChinh.BAP_TREN_2_THUONG_NHO;
@@ -456,7 +462,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
                 gia_dac_biet = GiaMonChinh.BAP_DAC_BIET;
             }
         }else if (checkPhoBapCoXiQuach()){
-            gia_dac_biet = GiaMonChinh.BAP_XI_QUACH_DAC_BIET;
+            gia_lon = GiaMonChinh.BAP_XI_QUACH_DAC_BIET;
         }else if (checkChiCoPhoEmBe()){
             gia_nho = GiaMonChinh.EM_BE;
         }else if (checkPhoXiQuachKhongCoBap()){
@@ -751,6 +757,11 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
             case R.id.cbTai:
                 isCheck = ((CheckBox)v).isChecked();
                 updatePhoThuong(isCheck, new PhoTai());
+                break;
+
+            case R.id.cbTaiBam:
+                isCheck = ((CheckBox)v).isChecked();
+                updatePhoThuong(isCheck, new PhoTaiBam());
                 break;
 
             case R.id.cbNam:

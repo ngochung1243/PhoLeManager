@@ -166,6 +166,7 @@ public class FirebaseHelper {
                         order.id = (String)order_map.get("id");
                         order.bill_id = (String)order_map.get("bill_id");
                         order.ten = (List<String>)order_map.get("ten");
+                        order.so_luong_em_be = (long)order_map.get("so_luong_em_be");
                         order.so_luong_nho = (long)order_map.get("so_luong_nho");
                         order.so_luong_lon = (long)order_map.get("so_luong_lon");
                         order.so_luong_dac_biet = (long)order_map.get("so_luong_dac_biet");

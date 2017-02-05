@@ -111,6 +111,33 @@
                             android:layout_marginTop="10dp">
 
                             <CheckBox
+                                android:id="@+id/cbChanhDay"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Chanh dây"
+                                android:textSize="@dimen/ten_pho_size"
+                                android:layout_marginLeft="10dp"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <CheckBox
                                 android:id="@+id/cbRauMa"
                                 android:layout_width="@dimen/checkbox_pho_size"
                                 android:layout_height="@dimen/checkbox_pho_size"
@@ -179,6 +206,60 @@
                                 android:layout_gravity="top|center"
                                 android:layout_marginTop="@dimen/pho_layout_margin"
                                 android:text="Yaourt đá"
+                                android:textSize="@dimen/ten_pho_size"
+                                android:layout_marginLeft="10dp"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <CheckBox
+                                android:id="@+id/cbCaRotThom"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Cà rốt / thơm"
+                                android:textSize="@dimen/ten_pho_size"
+                                android:layout_marginLeft="10dp"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <CheckBox
+                                android:id="@+id/cbChanhDayCaRotYaourtDa"
+                                android:layout_width="@dimen/checkbox_pho_size"
+                                android:layout_height="@dimen/checkbox_pho_size"
+                                android:button="@null"
+                                android:background="@drawable/checkbox_selector"
+                                android:layout_gravity="center"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|center"
+                                android:layout_marginTop="@dimen/pho_layout_margin"
+                                android:text="Chanh dây / cà rốt / yaourt đá"
                                 android:textSize="@dimen/ten_pho_size"
                                 android:layout_marginLeft="10dp"
                                 />
