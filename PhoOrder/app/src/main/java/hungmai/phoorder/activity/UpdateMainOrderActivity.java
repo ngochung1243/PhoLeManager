@@ -58,6 +58,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     CheckBox cbEmBe;
     CheckBox cbXiQuach;
 
+    EditText edtEmBe;
     EditText edtNho;
     EditText edtLon;
     EditText edtDacBiet;
@@ -78,10 +79,12 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     List<String> ghichu_list = new ArrayList<String>();
     List<Pho> loai_pho_list = new ArrayList<Pho>();
 
+    int so_luong_em_be = 0;
     int so_luong_nho = 0;
     int so_luong_lon = 0;
     int so_luong_dac_biet = 0;
 
+    int gia_em_be = 0;
     int gia_nho = 0;
     int gia_lon = 0;
     int gia_dac_biet = 0;
@@ -113,6 +116,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
         cbEmBe = (CheckBox)findViewById(R.id.cbEmBe);
         cbXiQuach = (CheckBox)findViewById(R.id.cbXiQuach);
 
+        edtEmBe = (EditText)findViewById(R.id.edtEmBe);
         edtNho = (EditText)findViewById(R.id.edtNho);
         edtLon = (EditText)findViewById(R.id.edtLon);
         edtDacBiet = (EditText)findViewById(R.id.edtDacBiet);
@@ -148,6 +152,18 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
         cbBap.setOnClickListener(this);
         cbEmBe.setOnClickListener(this);
         cbXiQuach.setOnClickListener(this);
+
+        edtEmBe.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    setSoLuong();
+                    setGia();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         edtNho.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -245,10 +261,12 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     }
 
     private void loadSoLuong(){
+        so_luong_em_be = (int)target_order.so_luong_em_be;
         so_luong_nho = (int)target_order.so_luong_nho;
         so_luong_lon = (int)target_order.so_luong_lon;
         so_luong_dac_biet = (int)target_order.so_luong_dac_biet;
 
+        edtEmBe.setText(String.valueOf(so_luong_em_be));
         edtNho.setText(String.valueOf(so_luong_nho));
         edtLon.setText(String.valueOf(so_luong_lon));
         edtDacBiet.setText(String.valueOf(so_luong_dac_biet));
@@ -410,6 +428,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     }
 
     private void formatMacDinhEdtSoLuong(){
+        edtEmBe.setEnabled(true);
         edtNho.setEnabled(true);
         edtLon.setEnabled(true);
         edtDacBiet.setEnabled(true);
@@ -418,26 +437,31 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     private void setEnableEdt(){
         formatMacDinhEdtSoLuong();
         if (loai_pho_list.size() == 0){
+            edtEmBe.setEnabled(true);
             edtNho.setEnabled(false);
             edtLon.setEnabled(false);
             edtDacBiet.setEnabled(false);
         }else if (checkTatCaLaPhoThuong()){
             formatMacDinhEdtSoLuong();
         }else if (checkChiCoPhoThapCam()){
+            edtEmBe.setEnabled(false);
             edtNho.setEnabled(false);
             edtLon.setEnabled(true);
             edtDacBiet.setEnabled(false);
         }else if (checkPhoBapKhongCoXiQuach()){
             formatMacDinhEdtSoLuong();
         }else if (checkPhoBapCoXiQuach()){
+            edtEmBe.setEnabled(false);
             edtNho.setEnabled(false);
             edtLon.setEnabled(true);
             edtDacBiet.setEnabled(false);
         }else if (checkChiCoPhoEmBe()){
-            edtNho.setEnabled(true);
+            edtEmBe.setEnabled(true);
+            edtNho.setEnabled(false);
             edtLon.setEnabled(false);
             edtDacBiet.setEnabled(false);
         }else if (checkPhoXiQuachKhongCoBap()){
+            edtEmBe.setEnabled(false);
             edtNho.setEnabled(false);
             edtLon.setEnabled(true);
             edtDacBiet.setEnabled(true);
@@ -445,6 +469,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     }
 
     private void checkGia(){
+        gia_em_be = GiaMonChinh.EM_BE;
         if (checkTatCaLaPhoThuong()){
             gia_nho = GiaMonChinh.PHO_NHO;
             gia_lon = GiaMonChinh.PHO_LON;
@@ -464,7 +489,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
         }else if (checkPhoBapCoXiQuach()){
             gia_lon = GiaMonChinh.BAP_XI_QUACH_DAC_BIET;
         }else if (checkChiCoPhoEmBe()){
-            gia_nho = GiaMonChinh.EM_BE;
+            gia_em_be = GiaMonChinh.EM_BE;
         }else if (checkPhoXiQuachKhongCoBap()){
             if (checkPhoXiQuachCoTren2PhoThuong()){
                 gia_lon = GiaMonChinh.XI_QUACH_TREN_2_THUONG_LON;
@@ -615,7 +640,17 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
         checkGia();
         boolean isHas = false;
         if (loai_pho_list.size() > 0){
+            if (!edtEmBe.getText().toString().equals("0") && !edtEmBe.getText().toString().equals("") && edtEmBe.isEnabled()){
+                tvGia.append(edtEmBe.getText().toString() + "x" + gia_em_be + " ");
+                isHas = true;
+            }else{
+                gia_em_be = 0;
+            }
+
             if (!edtNho.getText().toString().equals("0") && !edtNho.getText().toString().equals("") && edtNho.isEnabled()){
+                if (isHas){
+                    tvGia.append("+ ");
+                }
                 tvGia.append(edtNho.getText().toString() + "x" + gia_nho + " ");
                 isHas = true;
             }else{
@@ -641,13 +676,20 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
                 gia_dac_biet = 0;
             }
 
-            gia_tong = gia_nho * so_luong_nho + gia_lon * so_luong_lon + gia_dac_biet * so_luong_dac_biet;
+            gia_tong = gia_em_be * so_luong_em_be + gia_nho * so_luong_nho + gia_lon * so_luong_lon + gia_dac_biet * so_luong_dac_biet;
             tvGia.append(" = " + gia_tong + ".000");
+        }else {
+            gia_tong = 0;
+            tvGia.append("");
         }
     }
 
     private void loadSoLuongLenView(){
         tvSoLuong.setText("");
+        if (so_luong_em_be != 0){
+            tvSoLuong.append(edtEmBe.getText().toString() + " Em bé ");
+        }
+
         if (so_luong_nho != 0){
             tvSoLuong.append(edtNho.getText().toString() + " Nhỏ ");
         }
@@ -662,6 +704,12 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
     }
 
     private void setSoLuong(){
+        if (!edtEmBe.getText().toString().equals("0") && !edtEmBe.getText().toString().equals("") && edtEmBe.isEnabled()){
+            so_luong_em_be = Integer.parseInt(edtEmBe.getText().toString());
+        }else{
+            so_luong_em_be = 0;
+        }
+
         if (!edtNho.getText().toString().equals("0") && !edtNho.getText().toString().equals("") && edtNho.isEnabled()){
             so_luong_nho = Integer.parseInt(edtNho.getText().toString());
         }else{
@@ -691,6 +739,7 @@ public class UpdateMainOrderActivity extends AppCompatActivity implements View.O
         }
 
         target_order.loai = 0;
+        target_order.so_luong_em_be = so_luong_em_be;
         target_order.so_luong_nho = so_luong_nho;
         target_order.so_luong_lon = so_luong_lon;
         target_order.so_luong_dac_biet = so_luong_dac_biet;

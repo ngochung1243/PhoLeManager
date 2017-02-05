@@ -1,6 +1,7 @@
 package hungmai.phodocorder.activity;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -62,6 +63,9 @@ public class DocOrderActivity extends AppCompatActivity {
         setAdapter();
         setRecyclerView();
         loadBill();
+
+        setMangVeOrder();
+        setBanOrder();
     }
 
     private void Map(){
@@ -147,6 +151,14 @@ public class DocOrderActivity extends AppCompatActivity {
         MyBundle.mOrderBusiness.loadBanOrder(new OrderBusiness.OrderBusinessListener() {
             @Override
             public void onSuccess() {
+                if (MyBundle.mOrderBusiness.ban_order_list.size() > 0){
+                    btnBan.setText("Bàn (" + MyBundle.mOrderBusiness.ban_order_list.size() + ")");
+                    btnBan.setTextColor(Color.RED);
+                }else {
+                    btnBan.setText("Bàn");
+                    btnBan.setTextColor(Color.WHITE);
+                }
+
                 banOrderAdapter.setBanOrderList(MyBundle.mOrderBusiness.ban_order_list);
             }
 
@@ -162,6 +174,13 @@ public class DocOrderActivity extends AppCompatActivity {
         MyBundle.mOrderBusiness.loadMangVeOrder(new OrderBusiness.OrderBusinessListener() {
             @Override
             public void onSuccess() {
+                if (MyBundle.mOrderBusiness.mang_ve_order_list.size() > 0){
+                    btnMangVe.setText("Mang về (" + MyBundle.mOrderBusiness.mang_ve_order_list.size() + ")");
+                    btnMangVe.setTextColor(Color.RED);
+                }else {
+                    btnMangVe.setText("Mang về");
+                    btnMangVe.setTextColor(Color.WHITE);
+                }
                 mangVeOrderAdapter.setMangVeOrderList(MyBundle.mOrderBusiness.mang_ve_order_list);
             }
 

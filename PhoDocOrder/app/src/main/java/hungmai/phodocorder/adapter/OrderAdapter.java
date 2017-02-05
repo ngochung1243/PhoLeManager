@@ -138,6 +138,10 @@ public class OrderAdapter extends SectionedRecyclerViewAdapter<OrderAdapter.MyVi
 
         private void loadSoLuong(Order order){
             String so_luong = "";
+            if (order.so_luong_em_be > 0){
+                so_luong += order.so_luong_em_be + " em bé ";
+            }
+
             if (order.so_luong_nho > 0){
                 so_luong += order.so_luong_nho + " nhỏ ";
             }
