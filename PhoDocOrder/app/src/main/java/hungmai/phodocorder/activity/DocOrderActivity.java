@@ -153,7 +153,7 @@ public class DocOrderActivity extends AppCompatActivity {
             public void onSuccess() {
                 if (MyBundle.mOrderBusiness.ban_order_list.size() > 0){
                     btnBan.setText("Bàn (" + MyBundle.mOrderBusiness.ban_order_list.size() + ")");
-                    btnBan.setTextColor(Color.RED);
+                    btnBan.setTextColor(Color.YELLOW);
                 }else {
                     btnBan.setText("Bàn");
                     btnBan.setTextColor(Color.WHITE);
@@ -176,7 +176,7 @@ public class DocOrderActivity extends AppCompatActivity {
             public void onSuccess() {
                 if (MyBundle.mOrderBusiness.mang_ve_order_list.size() > 0){
                     btnMangVe.setText("Mang về (" + MyBundle.mOrderBusiness.mang_ve_order_list.size() + ")");
-                    btnMangVe.setTextColor(Color.RED);
+                    btnMangVe.setTextColor(Color.YELLOW);
                 }else {
                     btnMangVe.setText("Mang về");
                     btnMangVe.setTextColor(Color.WHITE);
